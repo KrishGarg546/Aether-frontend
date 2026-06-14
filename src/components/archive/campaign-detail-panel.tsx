@@ -74,13 +74,14 @@ export function CampaignDetailPanel({ campaignId }: CampaignDetailPanelProps) {
           value={data.receipt_events_processed}
           accentClass="border-violet-500/20 bg-violet-500/[0.03] hover:border-violet-500/40"
         />
-        {data.duration_seconds !== undefined && (
-          <StatItem
-            label="Duration"
-            value={`${data.duration_seconds.toFixed(1)}s`}
-            accentClass="border-amber-500/20 bg-amber-500/[0.03] hover:border-amber-500/40"
-          />
-        )}
+        {data.duration_seconds !== null &&
+          data.duration_seconds !== undefined && (
+            <StatItem
+              label="Duration"
+              value={`${data.duration_seconds.toFixed(1)}s`}
+              accentClass="border-amber-500/20 bg-amber-500/[0.03] hover:border-amber-500/40"
+            />
+          )}
       </div>
 
       {rawResult ? (
