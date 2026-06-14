@@ -3,19 +3,23 @@
 import { cn } from "@/lib/utils";
 
 interface MetricsGridProps {
-  deliveryRate: number;
-  openRate: number;
-  clickRate: number;
-  failureRate: number;
+  deliveryRate?: number | null;
+  openRate?: number | null;
+  clickRate?: number | null;
+  failureRate?: number | null;
 }
 
 interface MetricDefinition {
   label: string;
-  value: number;
+  value?: number | null;
   tone: "positive" | "neutral" | "negative";
 }
 
-function formatPercent(value: number): string {
+function formatPercent(value?: number | null): string {
+  if (value === undefined || value === null || Number.isNaN(value)) {
+    return "—";
+  }
+
   return `${value.toFixed(1)}%`;
 }
 

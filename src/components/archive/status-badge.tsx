@@ -3,11 +3,11 @@
 import { cn } from "@/lib/utils";
 
 interface StatusBadgeProps {
-  status: string;
+  status?: string | null;
 }
 
 export function StatusBadge({ status }: StatusBadgeProps) {
-  const normalized = status.toLowerCase();
+  const normalized = (status ?? "unknown").toLowerCase();
   const isPositive = normalized === "completed" || normalized === "success";
 
   const statusStyles = isPositive
@@ -21,7 +21,7 @@ export function StatusBadge({ status }: StatusBadgeProps) {
         statusStyles
       )}
     >
-      {status.replace(/_/g, " ")}
+      {(status ?? "unknown").replace(/_/g, " ")}
     </span>
   );
 }
