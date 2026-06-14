@@ -49,9 +49,19 @@ Every mission contributes to a growing body of intelligence that influences futu
 
 ## Live Demo
 
-🚧 Deployment in progress.
+Frontend: *(Add Vercel URL after deployment)*
 
-A production deployment URL will be added here shortly.
+Backend API: *(Render deployment URL)*
+
+Aether is designed as a fully deployed, end-to-end marketing intelligence system:
+
+```
+Vercel Frontend
+       ↓
+Render Backend (Django)
+       ↓
+Supabase PostgreSQL
+```
 
 ---
 
@@ -242,7 +252,11 @@ The application will be available at **http://localhost:3000**.
 **Environment variables** — create a `.env.local` file at the root:
 
 ```env
+# Local development
 NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
+
+# Production
+# NEXT_PUBLIC_API_BASE_URL=https://your-render-backend.onrender.com
 ```
 
 ---
@@ -260,12 +274,16 @@ npm run lint       # Run ESLint
 
 ## Deployment
 
-Aether's frontend is deployed on [Vercel](https://vercel.com). To deploy your own instance:
+Aether's frontend is intended to be deployed on Vercel and integrated with the Render-hosted Django backend.
+
+Deployment workflow:
 
 1. Push the repository to GitHub
 2. Import the project in Vercel
 3. Set the `NEXT_PUBLIC_API_BASE_URL` environment variable to your backend URL
 4. Deploy
+
+The production frontend communicates directly with the deployed backend through the `NEXT_PUBLIC_API_BASE_URL` environment variable. Ensure the backend has CORS configured appropriately before publishing the frontend URL.
 
 Production builds are optimized automatically via Next.js static analysis and Vercel's edge network.
 

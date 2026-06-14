@@ -83,10 +83,26 @@ export function CampaignSummary({ result }: CampaignSummaryProps) {
       </div>
 
       <MetricsGrid
-        deliveryRate={raw_result.delivery_rate}
-        openRate={raw_result.open_rate}
-        clickRate={raw_result.click_rate}
-        failureRate={raw_result.failure_rate}
+        deliveryRate={
+          insights?.campaign_metrics?.delivery_rate ??
+          raw_result.delivery_rate ??
+          0
+        }
+        openRate={
+          insights?.campaign_metrics?.open_rate ??
+          raw_result.open_rate ??
+          0
+        }
+        clickRate={
+          insights?.campaign_metrics?.click_rate ??
+          raw_result.click_rate ??
+          0
+        }
+        failureRate={
+          insights?.campaign_metrics?.failure_rate ??
+          raw_result.failure_rate ??
+          0
+        }
       />
 
       <div className="flex flex-col gap-3">
