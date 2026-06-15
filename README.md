@@ -63,6 +63,8 @@ Render Backend (Django)
 Supabase PostgreSQL
 ```
 
+> **Deployment Note:** The backend is hosted on Render's free tier. After periods of inactivity, the first API request may experience a temporary cold-start delay while the service wakes up. Subsequent requests are significantly faster.
+
 ---
 
 ## Screenshots
